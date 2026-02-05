@@ -33,28 +33,68 @@ AgentTrace uses **static analysis** (regex pattern matching) to scan your codeba
 ## Installation
 
 ```bash
-# Install all packages
-cd packages/cli && npm install && npm run build
-cd ../dashboard && npm install && npm run build
+# 1. Clone the repository
+git clone https://github.com/0xParth/agent-trace.git
+cd agent-trace
+
+# 2. Install and build the CLI
+cd packages/cli
+npm install
+npm run build
+
+# 3. Install and build the Dashboard
+cd ../dashboard
+npm install
+npm run build
+
+# 4. Go back to root
+cd ../..
 ```
 
 ## Quick Start
 
+### Scan a Codebase
+
 ```bash
-# Scan any directory
-node dist/index.js scan /path/to/your/project
+# Basic scan (from the agent-trace directory)
+node packages/cli/dist/index.js scan /path/to/your/project
 
-# Output to JSON manifest
-node dist/index.js scan . --output agent-manifest.json
+# Example: scan current directory
+node packages/cli/dist/index.js scan .
 
+# Save results to JSON file
+node packages/cli/dist/index.js scan /path/to/project --output agent-manifest.json
+```
+
+### Launch the Dashboard
+
+```bash
+# Step 1: Generate a manifest first
+node packages/cli/dist/index.js scan /path/to/project --output agent-manifest.json
+
+# Step 2: Start the dashboard
+node packages/cli/dist/index.js dashboard
+
+# Opens http://localhost:3000 in your browser
+```
+
+### CLI Options
+
+```bash
 # Filter by framework
-node dist/index.js scan . --framework mcp
+node packages/cli/dist/index.js scan . --framework mcp
 
-# Show only high-risk tools
-node dist/index.js scan . --risk high
+# Filter by risk level
+node packages/cli/dist/index.js scan . --risk high
 
-# JSON-only output (for CI/CD)
-node dist/index.js scan . --json
+# JSON-only output (for CI/CD pipelines)
+node packages/cli/dist/index.js scan . --json
+
+# Dashboard on custom port
+node packages/cli/dist/index.js dashboard --port 8080
+
+# Dashboard with specific manifest file
+node packages/cli/dist/index.js dashboard --manifest ./my-manifest.json
 ```
 
 ## What Gets Detected
@@ -159,29 +199,14 @@ interface Detector {
 
 See `src/detectors/python.ts` for a comprehensive example.
 
-## Dashboard
+## Dashboard Features
 
-AgentTrace includes a web dashboard for visualizing and exploring scan results.
-
-### Starting the Dashboard
-
-```bash
-# First, generate a manifest
-node packages/cli/dist/index.js scan . --output agent-manifest.json
-
-# Start the dashboard
-node packages/cli/dist/index.js dashboard
-
-# Or with options
-node packages/cli/dist/index.js dashboard --port 3000 --manifest ./agent-manifest.json
-```
-
-### Dashboard Features
-
-1. **Overview** — Summary stats, risk distribution, framework breakdown
-2. **Tool Registry** — Searchable/filterable table of all detected tools
-3. **Blast Radius** — Interactive graph showing agent → tool → server relationships
-4. **Capability Matrix** — Permission grid grouped by framework
+| View | Description |
+|------|-------------|
+| **Overview** | Summary stats, risk distribution, framework breakdown |
+| **Tool Registry** | Searchable/filterable table of all detected tools |
+| **Blast Radius** | Interactive graph showing agent → tool → server relationships |
+| **Capability Matrix** | Permission grid grouped by framework |
 
 ### Keyboard Shortcuts
 
