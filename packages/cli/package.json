@@ -1,0 +1,42 @@
+{
+  "name": "agenttrace-cli",
+  "version": "0.1.0",
+  "description": "CLI tool to scan codebases for AI agents and MCP tools",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "agenttrace": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "lint": "eslint src --ext .ts",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "express": "^4.18.2",
+    "fast-glob": "^3.3.2",
+    "ignore": "^5.3.1",
+    "open": "^10.0.0",
+    "ora": "^8.0.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.0",
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "cli",
+    "ai",
+    "agents",
+    "mcp",
+    "scanner"
+  ],
+  "license": "MIT"
+}

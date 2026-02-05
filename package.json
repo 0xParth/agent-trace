@@ -1,0 +1,41 @@
+{
+  "name": "agenttrace",
+  "version": "0.1.0",
+  "private": false,
+  "description": "AgentTrace for AI Agents - Discover, visualize, and govern AI tools in your codebase",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/0xParth/agent-trace.git"
+  },
+  "homepage": "https://github.com/0xParth/agent-trace#readme",
+  "bugs": {
+    "url": "https://github.com/0xParth/agent-trace/issues"
+  },
+  "scripts": {
+    "build": "npm run build:cli && npm run build:dashboard",
+    "build:cli": "cd packages/cli && npm run build",
+    "build:dashboard": "cd packages/dashboard && npm run build",
+    "dev": "cd packages/dashboard && npm run dev",
+    "test": "cd packages/cli && npm test"
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "mcp",
+    "model-context-protocol",
+    "langraph",
+    "langgraph",
+    "crewai",
+    "autogen",
+    "security",
+    "scanner",
+    "static-analysis",
+    "governance",
+    "cli"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

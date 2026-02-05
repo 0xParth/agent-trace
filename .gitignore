@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Internal docs (not for public repo)
+docs/
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Generated files
+agent-manifest.json
+*.log
+*.map
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Package manager locks (keep package-lock.json for reproducibility)
+# Uncomment if you prefer pnpm only:
+# package-lock.json
+
+# OS files
+Thumbs.db
