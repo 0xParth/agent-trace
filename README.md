@@ -208,15 +208,6 @@ See `src/detectors/python.ts` for a comprehensive example.
 | **Blast Radius** | Interactive graph showing agent → tool → server relationships |
 | **Capability Matrix** | Permission grid grouped by framework |
 
-### Keyboard Shortcuts
-
-| Key | Action |
-|-----|--------|
-| `1-4` | Navigate between views |
-| `/` | Focus search |
-| `Esc` | Clear filters |
-| `?` | Show help |
-
 ## Roadmap
 
 - [x] **Phase 1: Scanner** — Detect tools across Python, TypeScript, Go

@@ -9,10 +9,10 @@ import {
 } from 'lucide-react';
 
 const navItems = [
-  { to: '/', icon: LayoutDashboard, label: 'Overview', shortcut: '1' },
-  { to: '/tools', icon: Wrench, label: 'Tool Registry', shortcut: '2' },
-  { to: '/blast-radius', icon: Network, label: 'Blast Radius', shortcut: '3' },
-  { to: '/matrix', icon: Grid3X3, label: 'Capability Matrix', shortcut: '4' },
+  { to: '/', icon: LayoutDashboard, label: 'Overview' },
+  { to: '/tools', icon: Wrench, label: 'Tool Registry' },
+  { to: '/blast-radius', icon: Network, label: 'Blast Radius' },
+  { to: '/matrix', icon: Grid3X3, label: 'Capability Matrix' },
 ];
 
 export function Sidebar() {
@@ -48,19 +48,12 @@ export function Sidebar() {
               >
                 <item.icon className="w-4 h-4" />
                 <span className="flex-1">{item.label}</span>
-                <span className="kbd text-[10px]">{item.shortcut}</span>
               </NavLink>
             </li>
           ))}
         </ul>
       </nav>
 
-      {/* Footer */}
-      <div className="p-4 border-t border-zinc-800">
-        <div className="text-xs text-zinc-500">
-          <p>Press <span className="kbd">?</span> for keyboard shortcuts</p>
-        </div>
-      </div>
     </aside>
   );
 }

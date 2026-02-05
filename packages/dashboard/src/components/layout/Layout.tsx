@@ -1,9 +1,7 @@
 import { ReactNode } from 'react';
 import { Sidebar } from './Sidebar';
 import { Header } from './Header';
-import { KeyboardShortcutsModal } from './KeyboardShortcutsModal';
 import { useManifest } from '@/hooks/useManifest';
-import { useKeyboardShortcuts } from '@/hooks/useKeyboardShortcuts';
 import { Loader2 } from 'lucide-react';
 
 interface LayoutProps {
@@ -12,7 +10,6 @@ interface LayoutProps {
 
 export function Layout({ children }: LayoutProps) {
   const { isLoading, error } = useManifest();
-  const { showHelp, setShowHelp, shortcuts } = useKeyboardShortcuts();
 
   if (isLoading) {
     return (
@@ -53,14 +50,6 @@ export function Layout({ children }: LayoutProps) {
           </div>
         </main>
       </div>
-
-      {/* Keyboard Shortcuts Modal */}
-      {showHelp && (
-        <KeyboardShortcutsModal
-          shortcuts={shortcuts}
-          onClose={() => setShowHelp(false)}
-        />
-      )}
     </div>
   );
 }

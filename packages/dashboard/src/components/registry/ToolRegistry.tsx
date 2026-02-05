@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   useReactTable,
   getCoreRowModel,
@@ -228,13 +228,13 @@ export function ToolRegistry() {
           </thead>
           <tbody className="divide-y divide-zinc-800/50">
             {table.getRowModel().rows.map((row) => (
-              <>
+              <React.Fragment key={row.id}>
                 <tr
-                  key={row.id}
                   className={cn(
-                    'hover:bg-zinc-900/50 transition-colors',
+                    'hover:bg-zinc-900/50 transition-colors cursor-pointer',
                     expandedRow === row.original.name && 'bg-zinc-900/50'
                   )}
+                  onClick={() => setExpandedRow(expandedRow === row.original.name ? null : row.original.name)}
                 >
                   {row.getVisibleCells().map((cell) => (
                     <td key={cell.id} className="px-4 py-3 text-sm">
@@ -243,13 +243,13 @@ export function ToolRegistry() {
                   ))}
                 </tr>
                 {expandedRow === row.original.name && (
-                  <tr key={`${row.id}-expanded`} className="bg-zinc-900/30">
+                  <tr className="bg-zinc-900/30">
                     <td colSpan={columns.length} className="px-4 py-4">
                       <ToolDetails tool={row.original} />
                     </td>
                   </tr>
                 )}
-              </>
+              </React.Fragment>
             ))}
           </tbody>
         </table>
